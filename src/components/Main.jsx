@@ -56,7 +56,7 @@ const Main = () => {
 
                 {error && <div className="error-message">{error}</div>}
 
-                {(searchQuery.trim()) ? (Object.keys(weatherData).length > 0) && (
+                {(searchQuery.trim()) && (Object.keys(weatherData).length > 0) && (
                     <div class=" space-y-3 flex flex-col " id="weather-info">
                         <h2 class="text-lg font-semibold">City: <span id="city" class="text-gray-700">  {weatherData.name}</span></h2>
                         <h2 class="text-lg font-semibold">Region: <span id="region" class="text-gray-700">{weatherData.region}</span></h2>
@@ -73,8 +73,7 @@ const Main = () => {
                         <p>Longitude: <span id="longitude" class="font-medium text-gray-500">{weatherData.lon}</span></p>
                     </div>
                 )
-                    :
-                    (<p>...</p>)
+                   
                 }
 
             </div>
