@@ -25,7 +25,7 @@ const Main = () => {
             const searchlocation = await getLocation(searchQuery);
             const searchTempInfo = await getTemperatureInfo(searchQuery);
             const searchWeatherCond = await getWeatherCondition(searchQuery);
-            setWeatherData({ ...searchlocation, ...searchTempInfo, ...searchWeatherCond });   //used ... to merger these states
+            setWeatherData({ ...searchlocation, ...searchTempInfo, ...searchWeatherCond });   //used ... to merge these states
 
             setError(null);
 
@@ -38,26 +38,25 @@ const Main = () => {
 
     }
 
-
     return (
 
-        <div className='w-full bg-sky-300 py-[3rem] flex justify-center' >
-            <div className="container w-[50%] px-[2rem] py-[1rem] bg-emerald-500 rounded-md flex flex-col justify-center gap-[1rem] ">
+        <div className='w-full py-[3rem] flex justify-center font-sans' >
+            <div className="container w-[45%] h-auto px-[1rem] py-[2.5rem]  rounded-[15px] bg-purple-200 flex flex-col items-center gap-[1rem] ">
 
-                <form className="add-tasks bg-amber-200  flex justify-evenly p-[1rem]" onSubmit={handleSearch} >
+                <form className="add-tasks flex justify-evenly p-[1rem rounded-[10px]  gap-2" onSubmit={handleSearch} >
                     <input type="text"
                         value={searchQuery}
                         onChange={(e) => setSearchQuery(e.target.value)}
                         placeholder='Enter City name'
-                        className='w-[70%] text-center p-[0.5rem] text-2xl bg-blue-300 text-white' />
+                        className='w-[80%] text-center p-[0.5rem] text-2xl bg-white text-black rounded-md' />
 
-                    <button className='px-[2rem] py-[1rem] cursor-pointer bg-red-400' type='submit' ><FontAwesomeIcon icon={faSearch} /></button>
+                    <button className='px-[2rem] py-[0.5rem] cursor-pointer text-white bg-purple-500 rounded-md text-2xl' type='submit' title='Search' ><FontAwesomeIcon icon={faSearch} /></button>
                 </form>
 
                 {error && <div className="error-message">{error}</div>}
 
                 {(searchQuery.trim()) && (Object.keys(weatherData).length > 0) && (
-                    <div class=" space-y-3 flex flex-col " id="weather-info">
+                    <div class=" space-y-3 flex flex-col w-[60%] p-3" id="weather-info">
                         <h2 class="text-lg font-semibold">City: <span id="city" class="text-gray-700">  {weatherData.name}</span></h2>
                         <h2 class="text-lg font-semibold">Region: <span id="region" class="text-gray-700">{weatherData.region}</span></h2>
                         <h2 class="text-lg font-semibold">Country: <span id="country" class="text-gray-700">{weatherData.country}</span></h2>
@@ -73,7 +72,7 @@ const Main = () => {
                         <p>Longitude: <span id="longitude" class="font-medium text-gray-500">{weatherData.lon}</span></p>
                     </div>
                 )
-                   
+
                 }
 
             </div>

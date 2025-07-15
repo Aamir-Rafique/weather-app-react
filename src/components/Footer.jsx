@@ -2,14 +2,14 @@ import React from 'react'
 
 const Footer = () => {
     return (
-        <footer className=" w-full text-sm text-center absolute pb-3 bottom-0 bg-gradient-to-r from-[#2545d4] to-[#6412b6] text-white text-[0.9rem]">    
+        <footer className=" w-full text-sm text-center relative bottom-0 pb-3   text-black text-[0.9rem]">    
             <p>
                 Made with ❤️ by <a href="https://github.com/Aamir-Rafique" target="_blank" rel="noopener"
-                    className="text-[#29acd4] hover:underline">Aamir Rafique</a>
+                    className="text-[#1898bf] hover:underline">Aamir Rafique</a>
             </p>
             <p>
                 Weather data provided by <a href="https://www.weatherapi.com/" target="_blank" rel="noopener"
-                    className="text-[#29acd4] hover:underline">WeatherAPI</a>
+                    className="text-[#1095bd] hover:underline">WeatherAPI</a>
             </p>
         </footer>
     )

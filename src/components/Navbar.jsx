@@ -13,7 +13,8 @@ const Navbar = () => {
     <nav className='flex items-center justify-between px-8 py-[0.3rem] shadow-md bg-gradient-to-r from-[#142c99] to-[#4d0c8e]' >
       <a href="https://aamirrafique.netlify.app/" target="_blank" rel="noopener" title="Visit Aamir Rafique's Portfolio" id="logo-link" > <img src={ARlogo} alt="Aamir Rafique Logo" id="logo-img" className="w-[4.5rem] pt-[3px] hover:animate-pulse ease-in-out infinite alternate md:pt-[7px]" /> </a>
 
-      <Link><h1 className="text-[2.6rem] text-white/70 hover:text-white/90 md:text-[2rem]">Weather App</h1></Link>
+
+      <Link><h1 className="text-[3rem] mr-[100px] font-bold text-white/80 hover:text-white/100 md:text-[2rem]">Weather App</h1></Link>
 
       <div className="flex gap-8 md:gap-[0.6rem]">......</div>
 
