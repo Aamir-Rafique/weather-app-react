@@ -40,8 +40,12 @@ const Main = () => {
 
     return (
 
+        
         <div className='w-full py-[3rem] flex justify-center font-sans' >
-            <div className="container w-[85%] lg:w-[45%] h-auto px-[1rem]  py-[1.4rem]  lg:py-[2.5rem] rounded-[15px] bg-sky-200 flex flex-col items-center gap-[1rem]" >
+
+            {(!searchQuery.trim()) && (<div className='mt-12' ></div>)}
+            
+            <div className="container w-[85%] shadow-lg lg:w-[45%] h-auto px-[1rem]  py-[1.4rem]  lg:py-[2.5rem] rounded-[15px] bg-sky-200 flex flex-col items-center gap-[1rem]" >
 
                 <form className="add-tasks flex justify-evenly p-[1rem rounded-[10px]  gap-2" onSubmit={handleSearch} >
                     <input type="text"
