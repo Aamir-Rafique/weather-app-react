@@ -48,9 +48,9 @@ const Main = () => {
                         value={searchQuery}
                         onChange={(e) => setSearchQuery(e.target.value)}
                         placeholder='Enter City name'
-                        className='w-[80%] text-center p-[0.2rem] lg:p-[0.5rem] lg:text-2xl bg-white text-black rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 transition' />
+                        className='w-[80%] text-center p-[0.2rem] lg:p-[0.5rem] lg:text-2xl text-black rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition bg-[#ffffffc9] backdrop-blur-sm' />
 
-                    <button className='px-[1rem] py-[0.5rem] cursor-pointer text-white bg-[#f145f7] hover:bg-[#c629c6] active:bg-[#a445c9]   rounded-md lg:text-2xl' type='submit' title='Search' ><FontAwesomeIcon icon={faSearch} /></button>
+                    <button className='bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition cursor-pointer  active:bg-blue-600    lg:text-2xl' type='submit' title='Search' ><FontAwesomeIcon icon={faSearch} /></button>
                 </form>
 
                 {error && <div className="error-message">{error}</div>}

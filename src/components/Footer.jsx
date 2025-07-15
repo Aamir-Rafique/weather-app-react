@@ -5,11 +5,11 @@ const Footer = () => {
         <footer className=" w-full text-[0.76rem] lg:text-[1rem] text-center relative bottom-0 pb-3   text-black">    
             <p>
                 Made with ❤️ by <a href="https://github.com/Aamir-Rafique" target="_blank" rel="noopener"
-                    className="text-[#1898bf] hover:underline">Aamir Rafique</a>
+                    className="text-[#0c36a8] hover:underline">Aamir Rafique</a>
             </p>
             <p>
                 Weather data provided by <a href="https://www.weatherapi.com/" target="_blank" rel="noopener"
-                    className="text-[#1095bd] hover:underline">WeatherAPI</a>
+                    className="text-[#1052bd] hover:underline">WeatherAPI</a>
             </p>
         </footer>
     )
