@@ -1,14 +1,13 @@
 import React, { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSearch } from '@fortawesome/free-solid-svg-icons';
-import { getLocation, getTemperatureInfo, getWeatherCondition } from "../services/api";
+import { faSearch, faLocationDot } from '@fortawesome/free-solid-svg-icons';
+import { searchLocation, getTemperatureInfo, getWeatherCondition, getCurrentLocation } from "../services/api";
 
 
 const Main = () => {
     const [searchQuery, setSearchQuery] = useState("");
     const [weatherData, setWeatherData] = useState({});
     const [error, setError] = useState(null);
-    // const [loading, setLoading] = useState(false);
 
     const infoClasses = "text lg:text-lg font-semibold";
 
@@ -17,34 +16,43 @@ const Main = () => {
     const handleSearch = async (e) => {
         e.preventDefault();
         if (!searchQuery.trim()) return;
-        // if (loading) return;
-
-        // setLoading(true);
 
         try {
-            const searchlocation = await getLocation(searchQuery);
+            const searchlocation = await searchLocation(searchQuery);
             const searchTempInfo = await getTemperatureInfo(searchQuery);
             const searchWeatherCond = await getWeatherCondition(searchQuery);
             setWeatherData({ ...searchlocation, ...searchTempInfo, ...searchWeatherCond });   //used ... to merge these states
-
             setError(null);
-
         } catch (err) {
             console.log(err);
             setError("Failed to fetch weather data. Please try again.");
-        } finally {
-            // setLoading(false);
         }
+    }
 
+    const handleCurrentLocation = async (e) => {
+        try {
+            alert("Fetching your live location please wait!");
+            const location = await getCurrentLocation();
+            setSearchQuery(location);
+            console.log(location);
+            const searchlocation = await searchLocation(location);
+            const searchTempInfo = await getTemperatureInfo(location);
+            const searchWeatherCond = await getWeatherCondition(location);
+            setWeatherData({ ...searchlocation, ...searchTempInfo, ...searchWeatherCond });   //used ... to merge these states
+            setError(null);
+        } catch (err) {
+            console.log(err);
+            setError("Failed to fetch weather data. Please try again.");
+        }
     }
 
     return (
 
-        
+
         <div className='w-full py-[3rem] flex justify-center font-sans' >
 
             {(!searchQuery.trim()) && (<div className='mt-12' ></div>)}
-            
+
             <div className="container w-[85%] shadow-lg lg:w-[45%] h-auto px-[1rem]  py-[1.4rem]  lg:py-[2.5rem] rounded-[15px] bg-sky-200 flex flex-col items-center gap-[1rem]" >
 
                 <form className="add-tasks flex justify-evenly p-[1rem rounded-[10px]  gap-2" onSubmit={handleSearch} >
@@ -54,7 +62,9 @@ const Main = () => {
                         placeholder='Enter City name'
                         className='w-[80%] text-center p-[0.2rem] lg:p-[0.5rem] lg:text-2xl text-black rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition bg-[#ffffffc9] backdrop-blur-sm' />
 
-                    <button className='bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition cursor-pointer  active:bg-blue-600    lg:text-2xl' type='submit' title='Search' ><FontAwesomeIcon icon={faSearch} /></button>
+                    <button className='bg-blue-500 text-white px-4 py-2 rounded  hover:bg-blue-600 transition cursor-pointer  active:bg-blue-600    lg:text-2xl' type='submit' title='Search' ><FontAwesomeIcon icon={faSearch} /></button>
+                    <button title="Use Current Location" onClick={handleCurrentLocation} className="lg:text-2xl bg-gray-600 cursor-pointer text-white  px-4 py-2 rounded-md hover:bg-gray-700 active:bg-gray-800 transition"> <FontAwesomeIcon icon={faLocationDot} /></button>
+
                 </form>
 
                 {error && <div className="error-message">{error}</div>}
