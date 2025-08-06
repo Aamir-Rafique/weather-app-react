@@ -109,7 +109,6 @@ weather-app-react/
 ├── README.md
 ├── LICENSE
 ├── vite.config.js
-```
 
 ```
 
