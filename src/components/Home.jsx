@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSearch, faLocationDot, faSpinner } from '@fortawesome/free-solid-svg-icons';
+import { faSearch, faLocationDot} from '@fortawesome/free-solid-svg-icons';
 import { searchLocation, getTemperatureInfo, getWeatherCondition, getCurrentLocation } from "../services/api";
 
 
@@ -79,7 +79,7 @@ const Main = () => {
                 {
                     (searchQuery.trim() && 
                     isLoading ?
-                    <img src="./public/spinner.gif" alt="" />
+                    <img src="./public/icons/spinner.gif" alt="" />
                         :
                         (error ? <div className="error-message">{error}</div> : !isLoading) && (Object.keys(weatherData).length > 0) && (
                             <div className=" space-y-3 flex flex-col w-[97%] lg:w-[70%] p-3 lg:px-10 bg-sky-300  hover:bg-purple-200 transition-all duration-300 rounded-2xl" id="weather-info">
