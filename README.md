@@ -174,7 +174,7 @@ See the [LICENSE](./LICENSE) file for details.
 ## 📷 Screenshots (Optional)
 
 <p align="center">
-  <img src="./public/images/SSweatherapp." alt="App Screenshot" width="700" />
+  <img src="./public/images/SSweatherapp.webp" alt="App Screenshot" width="700" />
 </p>
 
 ---
